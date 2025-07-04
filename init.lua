@@ -299,15 +299,25 @@ require("lazy").setup({
 				-- You can put your default mappings / updates / etc. in here
 				--  All the info you're looking for is in `:help telescope.setup()`
 				--
-				-- defaults = {
-				--   mappings = {
-				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-				--   },
-				-- },
-				-- pickers = {}
+				defaults = {
+					layout_strategy = "flex",
+				},
+				pickers = {
+					find_files = { theme = "ivy" },
+					oldfiles = { theme = "ivy" },
+					buffers = { theme = "ivy" },
+					colorscheme = { theme = "ivy" },
+					git_files = { theme = "ivy" },
+					live_grep = { theme = "ivy" },
+					lsp_references = { theme = "ivy" },
+					commands = { theme = "ivy" },
+					grep_string = { theme = "ivy" },
+					current_buffer_fuzzy_find = { theme = "ivy" },
+				},
 				extensions = {
 					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
+						-- require("telescope.themes").get_dropdown(),
+						require("telescope.themes").get_ivy(),
 					},
 				},
 			})
@@ -922,6 +932,17 @@ require("lazy").setup({
 				desc = "harpoon to file 5",
 			},
 		},
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup({})
+		end,
 	},
 }, {
 	ui = {
